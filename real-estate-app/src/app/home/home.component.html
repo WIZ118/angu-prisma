@@ -1,17 +1,18 @@
 <div class="container">
   <mat-card class="home-card">
-    <h2>Search Properties</h2>
-    <mat-form-field appearance="fill">
-      <mat-label>Search</mat-label>
-      <input matInput #searchQuery placeholder="Search properties" />
-    </mat-form-field>
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="searchProperties(searchQuery.value)"
-    >
-      Search
-    </button>
+    <div class="search-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Search</mat-label>
+        <input matInput #searchQuery placeholder="Search properties" />
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="searchProperties(searchQuery.value)"
+      >
+        Search
+      </button>
+    </div>
 
     <h2>Property Listings</h2>
     <div class="grid-container">
