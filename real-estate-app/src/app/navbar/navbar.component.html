@@ -3,26 +3,25 @@
   <span class="spacer"></span>
 
   <!-- Home Button with Icon -->
-  <button mat-button 
-          routerLink="/home" 
-          routerLinkActive="active-link" 
-          [routerLinkActiveOptions]="{ exact: true }">
-    <img src="assets/home.png" class="icon-img">
+  <button
+    mat-button
+    routerLink="/home"
+    routerLinkActive="active-link"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    <mat-icon svgIcon="home"></mat-icon>
     Home
   </button>
 
   <!-- Dashboard Button with Icon -->
-  <button mat-button 
-          routerLink="/dashboard" 
-          routerLinkActive="active-link">
-    <img src="assets/dashboard.png" class="icon-img">
+  <button mat-button routerLink="/dashboard" routerLinkActive="active-link">
+    <mat-icon svgIcon="dashboard"></mat-icon>
     Dashboard
   </button>
 
   <!-- Logout Button with Icon -->
-  <button mat-button 
-          (click)="logout()">
-    <img src="assets/logout.png" class="icon-img">
+  <button mat-button (click)="logout()">
+    <mat-icon svgIcon="logout"></mat-icon>
     Logout
   </button>
 </mat-toolbar>
