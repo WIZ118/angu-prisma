@@ -24,14 +24,30 @@
   border: 1px solid #ccc;
   padding: 1rem;
   background-color: #fff;
+  text-align: center;
 }
 
 .grid-item img {
   width: 100%;
-  height: auto;
+  height: 200px; /* Set height to make images uniform */
+  object-fit: cover; /* Maintain aspect ratio and cover the space */
   margin-bottom: 1rem;
 }
 
 .grid-item button {
   margin-top: 0.5rem;
+}
+
+.mat-card {
+  background-color: #ff0000; /* Red background for the theme */
+  color: white; /* Text color white for better contrast */
+}
+
+button.mat-raised-button {
+  background-color: #ff0000; /* Red color for buttons */
+  color: white;
+}
+
+button.mat-raised-button:hover {
+  background-color: #cc0000; /* Darker red on hover */
 }
