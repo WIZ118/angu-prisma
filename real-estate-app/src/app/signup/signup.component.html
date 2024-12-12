@@ -1,0 +1,25 @@
+<div class="container">
+  <mat-card class="signup-card">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="name" placeholder="Name" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="email" placeholder="Email" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        [(ngModel)]="password"
+        type="password"
+        placeholder="Password"
+      />
+    </mat-form-field>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    <button mat-raised-button color="primary" (click)="signup()">
+      Sign Up
+    </button>
+  </mat-card>
+</div>

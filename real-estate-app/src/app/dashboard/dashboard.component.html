@@ -1,0 +1,58 @@
+<div class="container">
+  <mat-card class="dashboard-card">
+    <h2>Create House</h2>
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput #title placeholder="Title" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input matInput #description placeholder="Description" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Price</mat-label>
+      <input matInput #price type="number" placeholder="Price" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Location</mat-label>
+      <input matInput #location placeholder="Location" />
+    </mat-form-field>
+    <div>
+      <label for="file">Picture</label>
+      <input type="file" id="file" (change)="onFileSelected($event)" />
+    </div>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="
+        createHouse(title.value, description.value, price.value, location.value)
+      "
+    >
+      Create House
+    </button>
+
+    <h2>Houses</h2>
+    <div class="grid-container">
+      <div class="grid-item" *ngFor="let house of houses">
+        <img
+          *ngIf="house.picture"
+          [src]="'http://localhost:3000/uploads/' + house.picture"
+          alt="{{ house.title }}"
+        />
+        <div>{{ house.title }}</div>
+        <div>{{ house.description }}</div>
+        <div>{{ house.price | currency : "PHP" }}</div>
+        <div>{{ house.location }}</div>
+        <button mat-raised-button color="primary" (click)="viewHouse(house.id)">
+          View
+        </button>
+        <button mat-raised-button color="accent" (click)="editHouse(house.id)">
+          Edit
+        </button>
+        <button mat-raised-button color="warn" (click)="removeHouse(house.id)">
+          Delete
+        </button>
+      </div>
+    </div>
+  </mat-card>
+</div>

@@ -1,0 +1,92 @@
+<mat-card>
+  <h1>Hello, {{ title }}</h1>
+
+  <div *ngIf="!isLoggedIn">
+    <h2>Signup</h2>
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput #signupName placeholder="Name" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput #signupEmail placeholder="Email" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput #signupPassword type="password" placeholder="Password" />
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="
+        signup(signupName.value, signupEmail.value, signupPassword.value)
+      "
+    >
+      Signup
+    </button>
+
+    <h2>Login</h2>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput #loginEmail placeholder="Email" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput #loginPassword type="password" placeholder="Password" />
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="login(loginEmail.value, loginPassword.value)"
+    >
+      Login
+    </button>
+  </div>
+
+  <div *ngIf="isLoggedIn">
+    <h2>Create House</h2>
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput #title placeholder="Title" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input matInput #description placeholder="Description" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Price</mat-label>
+      <input matInput #price type="number" placeholder="Price" />
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="createHouse(title.value, description.value, price.value)"
+    >
+      Create House
+    </button>
+
+    <h2>Houses</h2>
+    <mat-list>
+      <mat-list-item *ngFor="let house of houses">
+        <div mat-line>
+          {{ house.title }} - {{ house.description }} - ${{ house.price }}
+        </div>
+        <button mat-button color="primary" (click)="viewHouse(house.id)">
+          View
+        </button>
+        <button
+          mat-button
+          color="accent"
+          (click)="
+            editHouse(house.id, house.title, house.description, house.price)
+          "
+        >
+          Edit
+        </button>
+        <button mat-button color="warn" (click)="removeHouse(house.id)">
+          Delete
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</mat-card>
