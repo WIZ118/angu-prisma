@@ -1,8 +1,28 @@
-<mat-toolbar color="primary">
-  <span>Real Estate App</span>
+<mat-toolbar color="primary" class="navbar">
+  <span>RealSpot</span>
   <span class="spacer"></span>
-  <button mat-button routerLink="/home">Home</button>
-  <button mat-button routerLink="/dashboard">Dashboard</button>
-  <button mat-button (click)="logout()">Logout</button>
-</mat-toolbar>
 
+  <!-- Home Button with Icon -->
+  <button mat-button 
+          routerLink="/home" 
+          routerLinkActive="active-link" 
+          [routerLinkActiveOptions]="{ exact: true }">
+    <img src="assets/home.png" class="icon-img">
+    Home
+  </button>
+
+  <!-- Dashboard Button with Icon -->
+  <button mat-button 
+          routerLink="/dashboard" 
+          routerLinkActive="active-link">
+    <img src="assets/dashboard.png" class="icon-img">
+    Dashboard
+  </button>
+
+  <!-- Logout Button with Icon -->
+  <button mat-button 
+          (click)="logout()">
+    <img src="assets/logout.png" class="icon-img">
+    Logout
+  </button>
+</mat-toolbar>
