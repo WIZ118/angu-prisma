@@ -28,18 +28,31 @@ import { UserService } from '../user.service';
 })
 export class HomeComponent implements OnInit {
   properties: any[] = [];
+  filteredProperties: any[] = []; // Filtered list for display
 
   constructor(private userService: UserService) {}
 
   ngOnInit() {
     this.userService.getProperties().subscribe((data: any[]) => {
       this.properties = data;
+      this.filteredProperties = [...this.properties]; // Initialize filtered list
     });
   }
 
   searchProperties(query: string) {
-    this.userService.searchProperties(query).subscribe((data: any[]) => {
-      this.properties = data;
-    });
+    const lowerCaseQuery = query.toLowerCase();
+    this.filteredProperties = this.properties.filter((property) =>
+      property.title.toLowerCase().includes(lowerCaseQuery)
+    );
+  }
+
+  filterProperties(type: string) {
+    if (type === 'all') {
+      this.filteredProperties = [...this.properties];
+    } else {
+      this.filteredProperties = this.properties.filter(
+        (property) => property.type === type
+      );
+    }
   }
 }

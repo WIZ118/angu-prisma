@@ -14,9 +14,15 @@
       </button>
     </div>
 
+    <div class="filter-container">
+      <button mat-raised-button color="accent" (click)="filterProperties('all')">All</button>
+      <button mat-raised-button color="accent" (click)="filterProperties('For Rent')">For Rent</button>
+      <button mat-raised-button color="accent" (click)="filterProperties('For Sale')">For Sale</button>
+    </div>
+
     <h2>Property Listings</h2>
     <div class="grid-container">
-      <div class="grid-item" *ngFor="let property of properties">
+      <div class="grid-item" *ngFor="let property of filteredProperties">
         <img
           *ngIf="property.picture"
           [src]="'http://localhost:3000/uploads/' + property.picture"

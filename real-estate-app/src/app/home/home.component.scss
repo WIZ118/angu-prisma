@@ -1,6 +1,8 @@
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  min-height: 100vh; /* Full viewport height */
   padding: 2rem;
   background-color: #ffe5e5; /* Light red background */
 }
@@ -16,7 +18,7 @@
 
 .search-container {
   display: flex;
-  justify-content: flex-end; /* Align to the right */
+  justify-content: center; /* Center content horizontally */
   margin-bottom: 1.5rem;
   gap: 0.5rem; /* Space between input and button */
 }
@@ -33,10 +35,24 @@ button[color="primary"] {
   color: white !important;
 }
 
+.filter-container {
+  display: flex;
+  justify-content: center; /* Center the buttons horizontally */
+  margin-bottom: 1.5rem;
+  gap: 0.5rem; /* Space between buttons */
+}
+
+button[color="accent"] {
+  background-color: #4caf50 !important; /* Green buttons for filtering */
+  color: white !important;
+}
+
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1rem;
+  justify-content: center; /* Center the grid horizontally */
 }
 
 .grid-item {
