@@ -22,9 +22,9 @@ export class AppComponent {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        this.showNavbar = !['/login', '/signup'].includes(
-          event.urlAfterRedirects
-        );
+        // Hide Navbar on admin routes or specific paths
+        this.showNavbar = !event.urlAfterRedirects.startsWith('/admin') &&
+                          !['/login', '/signup'].includes(event.urlAfterRedirects);
       });
   }
 }
