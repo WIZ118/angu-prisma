@@ -32,10 +32,6 @@ export class NavbarComponent {
       domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/home.svg')
     );
     matIconRegistry.addSvgIcon(
-      'dashboard',
-      domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/dashboard.svg')
-    );
-    matIconRegistry.addSvgIcon(
       'admin_panel_settings',
       domSanitizer.bypassSecurityTrustResourceUrl(
         'assets/icons/admin_panel_settings.svg'
