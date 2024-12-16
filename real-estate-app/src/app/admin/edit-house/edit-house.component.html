@@ -1,21 +1,30 @@
 <div class="container">
   <mat-card class="dashboard-card">
-    <h2>Create House</h2>
+    <h2>Edit House</h2>
     <mat-form-field appearance="fill">
       <mat-label>Title</mat-label>
-      <input matInput #title placeholder="Title" />
+      <input matInput [(ngModel)]="house.title" placeholder="Title" />
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Description</mat-label>
-      <input matInput #description placeholder="Description" />
+      <input
+        matInput
+        [(ngModel)]="house.description"
+        placeholder="Description"
+      />
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Price</mat-label>
-      <input matInput #price type="number" placeholder="Price" />
+      <input
+        matInput
+        [(ngModel)]="house.price"
+        type="number"
+        placeholder="Price"
+      />
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Location</mat-label>
-      <input matInput #location placeholder="Location" />
+      <input matInput [(ngModel)]="house.location" placeholder="Location" />
     </mat-form-field>
     <div>
       <label>Type</label>
@@ -48,10 +57,10 @@
       mat-raised-button
       color="primary"
       (click)="
-        createHouse(title.value, description.value, price.value, location.value)
+        updateHouse(house.title, house.description, house.price, house.location)
       "
     >
-      Create House
+      Update House
     </button>
   </mat-card>
 </div>

@@ -6,11 +6,10 @@ import { RouterModule, Router } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatListModule } from '@angular/material/list';
-import { UserService } from '../user.service';
+import { UserService } from '../../user.service';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-manage-houses',
   standalone: true,
   imports: [
     CommonModule,
@@ -20,14 +19,12 @@ import { UserService } from '../user.service';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    MatListModule,
   ],
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
+  templateUrl: './manage-houses.component.html',
+  styleUrls: ['./manage-houses.component.scss'],
   providers: [UserService],
 })
-export class DashboardComponent implements OnInit {
-  title = 'real-estate-app';
+export class ManageHousesComponent implements OnInit {
   houses: any[] = [];
 
   constructor(private userService: UserService, private router: Router) {}
@@ -47,7 +44,7 @@ export class DashboardComponent implements OnInit {
   }
 
   editHouse(id: number) {
-    this.router.navigate(['/edit-house', id]);
+    this.router.navigate(['/admin/edit-house', id]);
   }
 
   removeHouse(id: number) {

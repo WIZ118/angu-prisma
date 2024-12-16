@@ -1,6 +1,6 @@
 <div class="container">
   <mat-card class="dashboard-card">
-    <h2>Houses</h2>
+    <h2>Manage Houses</h2>
     <div class="grid-container">
       <div class="grid-item" *ngFor="let house of houses">
         <img
@@ -10,8 +10,9 @@
         />
         <div>{{ house.title }}</div>
         <div>{{ house.description }}</div>
-        <div>{{ house.price | currency : "PHP" }}</div>
+        <div>{{ house.price | currency }}</div>
         <div>{{ house.location }}</div>
+        <div>{{ house.type }}</div>
         <button mat-raised-button color="primary" (click)="viewHouse(house.id)">
           View
         </button>

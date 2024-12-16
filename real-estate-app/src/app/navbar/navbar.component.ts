@@ -29,15 +29,21 @@ export class NavbarComponent {
   ) {
     matIconRegistry.addSvgIcon(
       'home',
-      domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/home.png')
+      domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/home.svg')
     );
     matIconRegistry.addSvgIcon(
       'dashboard',
-      domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/dashboard.png')
+      domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/dashboard.svg')
+    );
+    matIconRegistry.addSvgIcon(
+      'admin_panel_settings',
+      domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/icons/admin_panel_settings.svg'
+      )
     );
     matIconRegistry.addSvgIcon(
       'logout',
-      domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/logout.png')
+      domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/logout.svg')
     );
   }
 

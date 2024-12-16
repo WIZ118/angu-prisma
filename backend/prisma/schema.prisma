@@ -24,4 +24,5 @@ model Property {
   picture     String?
   ownerId     Int
   owner       User     @relation(fields: [ownerId], references: [id])
+  type        String   // Ensure this line is present
 }

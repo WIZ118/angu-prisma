@@ -9,11 +9,17 @@ import { RouterModule, Router } from '@angular/router';
   styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent {
-  constructor(public router: Router) {} // Make Router instance PUBLIC
+  constructor(public router: Router) {}
+
+  navigateTo(path: string) {
+    this.router.navigate([`/admin/${path}`]);
+  }
 
   logout() {
     console.log('Logging out...');
     alert('Logged out');
-    this.router.navigate(['/login']); // Redirect to login
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.router.navigate(['/login']);
   }
 }

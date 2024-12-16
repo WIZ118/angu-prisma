@@ -44,7 +44,12 @@ export class SignupComponent {
           this.router.navigate(['/login']);
         },
         (error) => {
-          this.errorMessage = 'Signup failed. Please try again.';
+          if (error.error && error.error.error === 'Email already exists') {
+            this.errorMessage =
+              'Email already exists. Please use a different email.';
+          } else {
+            this.errorMessage = 'Signup failed. Please try again.';
+          }
           console.error('Signup error:', error);
         }
       );

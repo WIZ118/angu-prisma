@@ -1,29 +1,35 @@
 <div class="dashboard-container">
-    <!-- Sidebar -->
-    <nav class="side-nav">
-      <div class="logo">Admin Dashboard</div>
-      <ul class="nav-links">
-        <li 
-          class="nav-item"
-          [class.active]="router.url === '/admin/users'"
-          (click)="router.navigate(['users'])"
-        >
-          Users
-        </li>
-        <li 
-          class="nav-item"
-          [class.active]="router.url === '/admin/add-house'"
-          (click)="router.navigate(['add-house'])"
-        >
-          Add House
-        </li>
-      </ul>
-      <button class="logout-btn" (click)="logout()">Logout</button>
-    </nav>
-  
-    <!-- Main Content Area -->
-    <div class="main-content">
-      <router-outlet></router-outlet>
-    </div>
+  <!-- Sidebar -->
+  <nav class="side-nav">
+    <div class="logo">Admin Dashboard</div>
+    <ul class="nav-links">
+      <li
+        class="nav-item"
+        [class.active]="router.url === '/admin/users'"
+        (click)="navigateTo('users')"
+      >
+        Users
+      </li>
+      <li
+        class="nav-item"
+        [class.active]="router.url === '/admin/add-house'"
+        (click)="navigateTo('add-house')"
+      >
+        Add House
+      </li>
+      <li
+        class="nav-item"
+        [class.active]="router.url === '/admin/manage-houses'"
+        (click)="navigateTo('manage-houses')"
+      >
+        Manage Houses
+      </li>
+    </ul>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </nav>
+
+  <!-- Main Content Area -->
+  <div class="main-content">
+    <router-outlet></router-outlet>
   </div>
-  
+</div>

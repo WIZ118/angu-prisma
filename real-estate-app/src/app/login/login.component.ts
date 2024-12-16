@@ -42,7 +42,7 @@ export class LoginComponent {
         (response) => {
           localStorage.setItem('token', response.token);
           localStorage.setItem('user', JSON.stringify(response.user));
-          this.router.navigate(['/home']);
+          this.router.navigate(['/dashboard']);
         },
         (error) => {
           this.errorMessage = 'Invalid email or password.';

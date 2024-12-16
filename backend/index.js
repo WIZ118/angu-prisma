@@ -55,8 +55,12 @@ app.post("/signup", async (req, res) => {
     const token = jwt.sign({ userId: user.id }, SECRET_KEY);
     res.json({ token, user });
   } catch (error) {
-    console.error("Signup error:", error);
-    res.status(500).json({ error: "Signup failed: " + error.message });
+    if (error.code === "P2002" && error.meta.target.includes("email")) {
+      res.status(400).json({ error: "Email already exists" });
+    } else {
+      console.error("Signup error:", error);
+      res.status(500).json({ error: "Signup failed: " + error.message });
+    }
   }
 });
 
@@ -112,7 +116,7 @@ app.get("/properties/:id", async (req, res) => {
 
 // Create property
 app.post("/properties", upload.single("picture"), async (req, res) => {
-  const { title, description, price, location, ownerId } = req.body;
+  const { title, description, price, location, ownerId, type } = req.body; // Add type
   const picture = req.file ? req.file.filename : null;
   console.log("Creating property with data:", {
     title,
@@ -121,6 +125,7 @@ app.post("/properties", upload.single("picture"), async (req, res) => {
     location,
     picture,
     ownerId,
+    type, // Add type
   });
   try {
     const property = await prisma.property.create({
@@ -131,6 +136,7 @@ app.post("/properties", upload.single("picture"), async (req, res) => {
         location,
         picture,
         ownerId: parseInt(ownerId),
+        type, // Add type
       },
     });
     res.json(property);
@@ -146,17 +152,27 @@ app.post("/properties", upload.single("picture"), async (req, res) => {
 // Update property
 app.put("/properties/:id", upload.single("picture"), async (req, res) => {
   const { id } = req.params;
-  const { title, description, price, location } = req.body;
+  const { title, description, price, location, type } = req.body; // Add type
   const updatedData = {
     title,
     description,
     price: parseFloat(price),
     location,
-    picture: req.file ? req.file.filename : undefined,
+    type, // Add type
   };
 
+  if (req.file) {
+    updatedData.picture = req.file.filename;
+  }
+
   // Ensure all fields are defined
-  if (!title || !description || !location || isNaN(updatedData.price)) {
+  if (
+    !title ||
+    !description ||
+    !location ||
+    isNaN(updatedData.price) ||
+    !type
+  ) {
     return res
       .status(400)
       .json({ error: "All fields are required and price must be a number" });
