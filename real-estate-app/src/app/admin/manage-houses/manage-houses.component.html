@@ -1,27 +1,35 @@
 <div class="container">
   <mat-card class="dashboard-card">
     <h2>Manage Houses</h2>
-    <div class="grid-container">
-      <div class="grid-item" *ngFor="let house of houses">
-        <img
-          *ngIf="house.picture"
-          [src]="'http://localhost:3000/uploads/' + house.picture"
-          alt="{{ house.title }}"
-        />
-        <div>{{ house.title }}</div>
-        <div>{{ house.description }}</div>
-        <div>{{ house.price | currency }}</div>
-        <div>{{ house.location }}</div>
-        <div>{{ house.type }}</div>
-        <button mat-raised-button color="primary" (click)="viewHouse(house.id)">
-          View
-        </button>
-        <button mat-raised-button color="accent" (click)="editHouse(house.id)">
-          Edit
-        </button>
-        <button mat-raised-button color="warn" (click)="removeHouse(house.id)">
-          Delete
-        </button>
+    <div class="card-container">
+      <div class="card" *ngFor="let house of houses">
+        <div class="card-image">
+          <img
+            *ngIf="house.picture"
+            [src]="'http://localhost:3000/uploads/' + house.picture"
+            alt="{{ house.title }}"
+          />
+        </div>
+        <div class="card-content">
+          <h3>{{ house.title }}</h3>
+          <p>{{ house.description }}</p>
+          <div class="price-location">
+            <span>{{ house.price | currency }}</span>
+            <span>{{ house.location }}</span>
+          </div>
+          <div class="house-type">{{ house.type }}</div>
+          <div class="actions">
+            <button mat-raised-button color="primary" (click)="viewHouse(house.id)">
+              View
+            </button>
+            <button mat-raised-button color="accent" (click)="editHouse(house.id)">
+              Edit
+            </button>
+            <button mat-raised-button color="warn" (click)="removeHouse(house.id)">
+              Delete
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </mat-card>

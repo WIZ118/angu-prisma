@@ -5,10 +5,17 @@
     <ul class="nav-links">
       <li
         class="nav-item"
+        [class.active]="router.url === '/home'"
+        (click)="navigateToHome()"
+      >
+        Home
+      </li>
+      <li
+        class="nav-item"
         [class.active]="router.url === '/admin/users'"
         (click)="navigateTo('users')"
       >
-        Users
+        User
       </li>
       <li
         class="nav-item"

@@ -11,10 +11,17 @@ import { RouterModule, Router } from '@angular/router';
 export class AdminComponent {
   constructor(public router: Router) {}
 
+  // Navigate to specific admin pages
   navigateTo(path: string) {
     this.router.navigate([`/admin/${path}`]);
   }
 
+  // Navigate back to home
+  navigateToHome() {
+    this.router.navigate(['/home']);
+  }
+
+  // Logout function
   logout() {
     console.log('Logging out...');
     alert('Logged out');

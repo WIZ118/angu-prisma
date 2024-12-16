@@ -1,0 +1,67 @@
+// Profile Container
+.profile-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  // Profile Header
+  .profile-header {
+    margin-bottom: 1.5rem;
+    .profile-picture {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 2px solid #d32f2f; /* Highlighted border color */
+    }
+    .agent-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+  }
+  
+  // Profile Details
+  .profile-details {
+    margin-bottom: 1.5rem;
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #ddd;
+  
+      .detail-label {
+        font-weight: bold;
+        color: #555;
+      }
+  
+      .detail-value {
+        color: #333;
+      }
+    }
+  }
+  
+  // Update Profile Button
+  .update-profile-btn {
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: #b71c1c;
+    }
+  }
+  
