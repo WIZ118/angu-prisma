@@ -48,7 +48,7 @@
         />
         <div>{{ property.title }}</div>
         <div>{{ property.description }}</div>
-        <div>{{ property.price | currency }}</div>
+        <p>{{ property?.price | currency:'PHP' }}</p>
         <div>{{ property.location }}</div>
         <div>Agent: {{ property.owner.name }}</div>
         <button

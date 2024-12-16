@@ -1,15 +1,17 @@
 <div class="container">
   <mat-card class="property-details-card">
-    <h2>{{ property?.title }}</h2>
+    <div class="details">
+      <h2>{{ property?.title }}</h2>
+      <p>{{ property?.description }}</p>
+      <p>{{ property?.price | currency:'PHP' }}</p>
+      <p>{{ property?.location }}</p>
+      <p>Agent: {{ property?.owner?.name }}</p>
+    </div>
     <img
       *ngIf="property?.picture"
       [src]="'http://localhost:3000/uploads/' + property.picture"
       alt="{{ property?.title }}"
       width="300"
     />
-    <p>{{ property?.description }}</p>
-    <p>{{ property?.price | currency }}</p>
-    <p>{{ property?.location }}</p>
-    <p>Agent: {{ property?.owner?.name }}</p>
   </mat-card>
 </div>
