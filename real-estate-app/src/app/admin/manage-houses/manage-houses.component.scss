@@ -1,69 +1,83 @@
+/* Main container */
 .container {
     display: flex;
     justify-content: center;
     padding: 20px;
-    height: 550px;
+    width: 100%;
+    max-width: 1200px; /* Constrain the total width */
+    box-sizing: border-box;
   }
   
+  /* Dashboard card wrapper */
   .dashboard-card {
     width: 100%;
-    max-width: 1200px;
     padding: 20px;
   }
   
+  /* Responsive grid container for house cards */
   .card-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Dynamically adjust based on available space */
+    gap: 16px; /* Space between cards */
+    width: 100%;
+    box-sizing: border-box;
   }
   
+  /* Individual house card */
   .card {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+    padding: 12px;
+    height: auto;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   
+  /* House image styles */
   .card-image img {
     width: 100%;
-    height: 200px;
+    height: 180px;
     object-fit: cover;
     border-radius: 4px;
   }
   
+  /* Content inside the card */
   .card-content {
     padding: 10px 0;
   }
   
+  /* Title and description */
   .card-content h3 {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 10px 0;
+    font-size: 16px;
+    margin: 5px 0;
   }
   
   .card-content p {
     font-size: 14px;
     color: #555;
+    margin: 5px 0;
   }
   
+  /* Price & Location */
   .price-location {
     display: flex;
     justify-content: space-between;
-    margin: 10px 0;
+    font-size: 14px;
+    margin: 8px 0;
   }
   
+  /* House type styling */
   .house-type {
-    font-size: 14px;
+    font-size: 13px;
     color: #777;
   }
   
+  /* Buttons at the bottom of each card */
   .actions {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    margin-top: 8px;
+    gap: 4px;
   }
   
